@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Song from "./Song";
 import songs from "../database/songs.json";
 
@@ -15,7 +15,7 @@ function Songs() {
   let match = useRouteMatch();
   //Scrolling through all songs thats loaded from database.json
   let songList = songs.map((song) => (
-    <li>
+    <li key = {Math.floor(Math.random() * 100000000) + 1000000}>
       {/* Adding a clickable link to each song */}
       <Link to={`${match.url}/${song.id}`}>
         {/* Retrieveing the song name, to display as a H3 header */}
@@ -28,7 +28,7 @@ function Songs() {
       <h2>Songs</h2>
       <ul>
         {/* displaying the new arraylist with all of the names of the songs and their link to their ID page. */}
-        <li>{songList}</li>
+        {songList}
       </ul>
       {/* Telling the router about the ID, and sending it to Song component via getSong wrapper, which gets it from useParams() */}
       <Switch>
