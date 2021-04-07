@@ -28,7 +28,7 @@ function Songs() {
       <h2>Songs</h2>
       <ul>
         {/* displaying the new arraylist with all of the names of the songs and their link to their ID page. */}
-        <li>{songList}</li>
+        {songList}
       </ul>
       {/* Telling the router about the ID, and sending it to Song component via getSong wrapper, which gets it from useParams() */}
       <Switch>

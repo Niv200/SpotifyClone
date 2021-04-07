@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Songs from "./components/Songs";
+import Albums from "./components/Albums";
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -42,7 +43,7 @@ function App() {
               <h1>Artists</h1>
             </Route>
             <Route path="/albums">
-              <h1>Albums</h1>
+              <Albums />
             </Route>
             <Route path="/songs">
               <Songs />
