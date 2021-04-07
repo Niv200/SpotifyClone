@@ -1,42 +1,49 @@
 import songs from "../database/songs.json";
 
-function Song(props, { name, artist, album, length, link, lyrics, id }) {
-  console.log(props.params.id);
+function Song(props) {
+  let { id } = props;
+  console.log(id);
   const getSongObject = (identifier) => {
+    //Loops through database to see if the identifier is matching the songs id.
+    //It returns an array [object], hence you need to return your array as array[0].
     return songs.filter((song) => song.id === identifier)[0];
   };
+  //If id is valid then..
   if (id) {
+    //get the song object from the database via getSongObject.
     let song = getSongObject(id);
-    name = song.name;
-    artist = song.artist;
-    album = song.album;
-    length = song.length;
-    lyrics = song.lyrics;
-    link = song.youtube_link;
+    //constructing the return for the song component.
+    return (
+      <div>
+        <h1>{song.name}</h1>
+        <h2>{song.artist}</h2>
+        <h2>{song.album}</h2>
+        <h2>{song.length}</h2>
+        <h2>
+          {
+            <iframe
+              width="560"
+              height="315"
+              src={song.link}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write;
+          encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          }
+        </h2>
+        <p>{song.lyrics}</p>
+      </div>
+    );
+    //If ID doesnt exist, return invalid ID!
+  } else {
+    return (
+      <div>
+        <h1>Invalid ID!</h1>
+      </div>
+    );
   }
-  return (
-    <div>
-      <h1>{name}</h1>
-      <h2>{artist}</h2>
-      <h2>{album}</h2>
-      <h2>{length}</h2>
-      <h2>
-        {
-          <iframe
-            width="560"
-            height="315"
-            src={link}
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write;
-        encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        }
-      </h2>
-      <p>{lyrics}</p>
-    </div>
-  );
 }
 
 export default Song;
