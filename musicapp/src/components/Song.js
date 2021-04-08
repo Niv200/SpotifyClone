@@ -1,5 +1,14 @@
 import songs from "../database/songs.json";
+import albums from "../database/albums.json";
 import "../css/Song.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams,
+} from "react-router-dom";
 
 function Song(props) {
   let { id } = props;
@@ -19,7 +28,7 @@ function Song(props) {
         <h1 className="songName">{song.name}</h1>
         <h2 className="songArtist">By {song.artist}</h2>
         <h2 className="songLength">{song.length}</h2>
-        <h2 className="songAlbum">Part of {song.album} album!</h2>
+        <h2 className="songAlbum">Part of <Link to={`albums/${GetAlbumByName(song.album)}`}><span classname= "songAlbumSpan">{song.album}</span></Link> album</h2>
         <h2>
           {
             <iframe
@@ -46,5 +55,9 @@ function Song(props) {
     );
   }
 }
+
+const GetAlbumByName = (name) => {
+  return albums.filter(album => album.name === name)[0].id;
+};
 
 export default Song;
