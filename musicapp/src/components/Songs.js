@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Song from "./Song";
 import songs from "../database/songs.json";
+import "../css/Songs.css";
 
 import {
   BrowserRouter as Router,
@@ -26,7 +27,7 @@ function Songs() {
   return (
     <div>
       <h2>Songs</h2>
-      <ul>
+      <ul id="songscontainer">
         {/* displaying the new arraylist with all of the names of the songs and their link to their ID page. */}
         {songList}
       </ul>

@@ -15,7 +15,7 @@ function Albums() {
   let match = useRouteMatch();
   //Scrolling through all albums thats loaded from database.json
   let albumList = albums.map((album) => (
-    <li>
+    <li key={getNewKey()}>
       {/* Adding a clickable link to each album */}
       <Link to={`${match.url}/${album.id}`}>
         {/* Retrieveing the album name, to display as a H3 header */}
@@ -47,6 +47,10 @@ const GetAlbum = () => {
   console.log(id);
   //correct id;
   return <Album id={id} />;
+};
+
+const getNewKey = () => {
+  return 1000000 + Math.floor(Math.random() * 9000000);
 };
 
 export default Albums;
