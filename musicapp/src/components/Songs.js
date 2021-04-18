@@ -16,11 +16,17 @@ function Songs() {
   let match = useRouteMatch();
   //Scrolling through all songs thats loaded from database.json
   let songList = songs.map((song) => (
-    <li key={Math.floor(Math.random() * 100000000) + 1000000}>
+    <li
+      className="songsflexitem"
+      key={Math.floor(Math.random() * 100000000) + 1000000}
+    >
       {/* Adding a clickable link to each song */}
       <Link to={`${match.url}/${song.id}`}>
         {/* Retrieveing the song name, to display as a H3 header */}
-        <h3>{song.name}</h3>
+        <h3 className="songsname">{song.name}</h3>
+        <p className="songsartist">By {song.artist}</p>
+        <p className="songsalbum">part of {song.album} album</p>
+        <p className="songslength">{song.length}</p>
       </Link>
     </li>
   ));

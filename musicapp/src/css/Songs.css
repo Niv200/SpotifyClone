@@ -6,3 +6,32 @@
   margin: 0;
   list-style: none;
 }
+
+.songsflexitem {
+  background: rgb(143, 219, 255);
+  padding: 5px;
+  width: 250px;
+  height: 200px;
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.songsname {
+  font-size: 1rem;
+  line-height: 1rem;
+  display: absolute;
+}
+
+.songsartist {
+  font-size: 100%;
+}
+
+.songsalbum {
+  font-size: 1.5rem;
+}
+
+.songslength {
+  font-size: 1rem;
+}
