@@ -7,36 +7,74 @@
     border-radius: 10px;
 }
 
+.albumslink :hover .showsongs{
+    color: white;
+    visibility: visible;
+    background-color: transparent;
+    opacity: 1;
+    transition: 1.5s;
+}
 .albumslink :hover .albumsname, .albumslink :hover .albumsartist, .albumslink :hover .albumsby{
     color: white;
     background-color: transparent;
+    visibility: hidden;
+    opacity: 0;
 }
+
+.showsongs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    visibility: hidden;
+    list-style: none;
+    background-color: transparent;
+    opacity: 0;
+    transition: 1s;
+    width: 250px;
+    font-size: 1rem;
+    margin-top: 0px;
+    margin-right: 10px;
+}
+
+.albumsongsli{
+    background-color: transparent;
+    margin-top: 10px;
+    margin-right: 35px;
+    margin-bottom: 10px;
+}
+
+
+
 
 #albumscontainer {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    margin: 10px 10px 10px 10px;
+    text-align: center;
+    margin: 10px 0px 10px 0px;
     padding: 0;
     margin: 0;
     list-style: none;
-  }
-  
-  .albumsflexitem {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      background-color: rgb(143, 219, 255);
-      padding: 5px;
-      width: 250px;
-      height: 200px;
-      font-size: 2rem;
-      color: white;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 50px;
-      transition: 0.5s;
+}
+
+.albumsflexitem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(143, 219, 255);
+    padding: 5px;
+    width: 250px;
+    height: 200px;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+    opacity: 1;
+    transition: 0.5s;
+    /* transition: 0.5s; */
 }
 
 .albumsname{

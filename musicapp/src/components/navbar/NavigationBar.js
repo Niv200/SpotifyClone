@@ -1,5 +1,6 @@
 import React from "react";
 import Songs from "../Songs";
+import Song from "../Song";
 import Albums from "../Albums";
 import "../../css/NavigationBar.css";
 
@@ -48,6 +49,14 @@ function NavigationBar() {
             <Route path="/songs">
               <Songs />
             </Route>
+            <Route path="/song/:id">
+            <h3>hello</h3>
+              <GetSong />
+            </Route>
+            {/* <Route path="/song">
+              <h3>hey</h3>
+              <h3>hey</h3>
+            </Route> */}
             <Route path="/">
               <h1>Home</h1>
             </Route>
@@ -57,5 +66,10 @@ function NavigationBar() {
     </div>
   );
 }
+
+const GetSong = () => {
+  const { id } = useParams();
+  return <Song id={id} />;
+};
 
 export default NavigationBar;

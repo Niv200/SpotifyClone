@@ -1,6 +1,7 @@
 import React from "react";
 import Album from "./Album";
 import albums from "../database/albums.json";
+import songs from "../database/songs.json";
 import "../css/Albums.css";
 
 import {
@@ -24,6 +25,9 @@ function Albums() {
           <span className="albumsname">{album.name}</span>
          <span className="albumsby">by </span>
           <span className="albumsartist">{album.artist}</span>
+          <ul className="showsongs">
+            {getSongs(album)}
+          </ul>
           </div>
       </Link>
     </li>
@@ -56,8 +60,19 @@ const GetAlbum = () => {
   return <Album id={id} />;
 };
 
+const getSongs = (album) => {
+  let songArray = album.songs
+  return songArray.map((song) => (
+    <li key = {getNewKey()} className="albumsongsli">{getSongName(song)}</li>
+  ));
+};
+
 const getNewKey = () => {
   return 1000000 + Math.floor(Math.random() * 9000000);
+};
+
+const getSongName = (identifier) => {
+  return songs.filter((song) => song.id === identifier)[0].name;
 };
 
 export default Albums;

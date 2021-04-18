@@ -12,14 +12,14 @@ import {
 
 function Song(props) {
   let { id } = props;
+  if(!id || id === undefined || getSongObject(id) === undefined){
+    return (
+      <div>
+        <h1>Invalid ID!</h1>
+      </div>
+    );
+  }
   console.log(id);
-  const getSongObject = (identifier) => {
-    //Loops through database to see if the identifier is matching the songs id.
-    //It returns an array [object], hence you need to return your array as array[0].
-    return songs.filter((song) => song.id === identifier)[0];
-  };
-  //If id is valid then..
-  if (id) {
     //get the song object from the database via getSongObject.
     let song = getSongObject(id);
     //constructing the return for the song component.
@@ -28,7 +28,7 @@ function Song(props) {
         <h1 className="songName">{song.name}</h1>
         <h2 className="songArtist">By {song.artist}</h2>
         <h2 className="songLength">{song.length}</h2>
-        <h2 className="songAlbum">Part of <Link to={`albums/${GetAlbumByName(song.album)}`}><span classname= "songAlbumSpan">{song.album}</span></Link> album</h2>
+        <h2 className="songAlbum">Part of <Link to={`/albums/${GetAlbumByName(song.album)}`}><span classname= "songAlbumSpan">{song.album}</span></Link> album</h2>
         <h2>
           {
             <iframe
@@ -46,18 +46,16 @@ function Song(props) {
         <p className="songLyrics">{song.lyrics}</p>
       </div>
     );
-    //If ID doesnt exist, return invalid ID!
-  } else {
-    return (
-      <div>
-        <h1>Invalid ID!</h1>
-      </div>
-    );
-  }
 }
 
 const GetAlbumByName = (name) => {
   return albums.filter(album => album.name === name)[0].id;
+};
+
+const getSongObject = (identifier) => {
+  //Loops through database to see if the identifier is matching the songs id.
+  //It returns an array [object], hence you need to return your array as array[0].
+  return songs.filter((song) => song.id === identifier)[0];
 };
 
 export default Song;
