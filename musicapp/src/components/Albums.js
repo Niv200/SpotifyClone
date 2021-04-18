@@ -19,7 +19,7 @@ function Albums() {
   let albumList = albums.map((album) => (
     <li className="albumsli" key={getNewKey()}>
       {/* Adding a clickable link to each album */}
-      <Link className="albumslink" to={`${match.url}/${album.id}`}>
+      <div className="albumslink">
         {/* Retrieveing the album name, to display as a H3 header */}
         <div className="albumsflexitem">
           <span className="albumsname">{album.name}</span>
@@ -29,7 +29,7 @@ function Albums() {
             {getSongs(album)}
           </ul>
           </div>
-      </Link>
+      </div>
     </li>
   ));
   return (
@@ -63,7 +63,13 @@ const GetAlbum = () => {
 const getSongs = (album) => {
   let songArray = album.songs
   return songArray.map((song) => (
-    <li key = {getNewKey()} className="albumsongsli">{getSongName(song)}</li>
+    <li key = {getNewKey()} className="albumsongsli">
+    <Link to={`/song/` + song}>
+      <span classname= "albumssongspan">
+      {getSong(song).name}
+      </span>
+    </Link>
+    </li>
   ));
 };
 
@@ -71,8 +77,8 @@ const getNewKey = () => {
   return 1000000 + Math.floor(Math.random() * 9000000);
 };
 
-const getSongName = (identifier) => {
-  return songs.filter((song) => song.id === identifier)[0].name;
+const getSong = (identifier) => {
+  return songs.filter((song) => song.id === identifier)[0];
 };
 
 export default Albums;
