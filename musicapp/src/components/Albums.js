@@ -29,7 +29,7 @@ function Albums() {
     </li>
   ));
   return (
-    <div>
+    <div id="albums">
       <h2>Albums</h2>
       <div>
       <ul id = "albumscontainer">
