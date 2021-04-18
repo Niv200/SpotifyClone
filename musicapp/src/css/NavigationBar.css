@@ -5,7 +5,7 @@
   overflow: hidden;
   background-color: #333;
   position: fixed;
-  /* top: 1.5rem; */
+  top: 0;
   width: 100%;
 }
 

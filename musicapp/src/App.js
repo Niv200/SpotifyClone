@@ -16,8 +16,8 @@ import {
 function App() {
   return (
     <div className="App">
-      <header id="header">Music app by niv</header>
       <NavigationBar />
+      <footer id="footer">Music app by niv</footer>
     </div>
   );
 }

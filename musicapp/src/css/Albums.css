@@ -1,0 +1,65 @@
+.albumslink :hover{
+    text-decoration: none;
+    background-color: rgb(15, 185, 228);
+    transform: scale(1.1);
+    border-radius: 10px;
+}
+
+.albumslink :hover .albumsname, .albumslink :hover .albumsartist, .albumslink :hover .albumsby{
+    color: white;
+    background-color: transparent;
+}
+
+#albumscontainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 10px 10px 10px 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .albumsflexitem {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      background-color: rgb(143, 219, 255);
+      padding: 5px;
+      width: 250px;
+      height: 200px;
+      font-size: 2rem;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 50px;
+      transition: 0.5s;
+}
+
+.albumsname{
+    text-shadow: -2px 2px 0px rgb(0, 162, 255);
+    position: absolute;
+    width: 220px;
+    margin-bottom: 30px;
+    transition: 0.5s;
+    background-color: transparent;
+}
+
+.albumsby{
+    font-size: 1.25rem;
+    position: absolute;
+    margin-top: 75px;
+    color: rgb(103, 167, 250);
+    transition: 0.5s;
+    background-color: transparent;
+}
+
+.albumsartist{
+    font-size: 1rem;
+    position: absolute;
+    margin-top: 130px;
+    color: rgb(103, 167, 250);
+    transition: 0.5s;
+    background-color: transparent;
+}
